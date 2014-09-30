@@ -1,0 +1,9 @@
+D:\GitHub\seven-arms-series--s-Passionate-Ring\SevenArmsSeries.UIWeb\bin\SevenArmsSeries.UIWeb.dll
+D:\GitHub\seven-arms-series--s-Passionate-Ring\SevenArmsSeries.UIWeb\bin\SevenArmsSeries.UIWeb.pdb
+D:\GitHub\seven-arms-series--s-Passionate-Ring\SevenArmsSeries.UIWeb\obj\Debug\SevenArmsSeries.UIWeb.dll
+D:\GitHub\seven-arms-series--s-Passionate-Ring\SevenArmsSeries.UIWeb\obj\Debug\SevenArmsSeries.UIWeb.pdb
+E:\Work\GitHub\seven-arms-series--s-Passionate-Ring\SevenArmsSeries.UIWeb\bin\SevenArmsSeries.UIWeb.dll
+E:\Work\GitHub\seven-arms-series--s-Passionate-Ring\SevenArmsSeries.UIWeb\bin\SevenArmsSeries.UIWeb.pdb
+E:\Work\GitHub\seven-arms-series--s-Passionate-Ring\SevenArmsSeries.UIWeb\obj\Debug\ResolveAssemblyReference.cache
+E:\Work\GitHub\seven-arms-series--s-Passionate-Ring\SevenArmsSeries.UIWeb\obj\Debug\SevenArmsSeries.UIWeb.dll
+E:\Work\GitHub\seven-arms-series--s-Passionate-Ring\SevenArmsSeries.UIWeb\obj\Debug\SevenArmsSeries.UIWeb.pdb

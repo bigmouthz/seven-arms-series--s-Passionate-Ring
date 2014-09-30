@@ -1,0 +1,9 @@
+D:\GitHub\seven-arms-series--s-Passionate-Ring\seven-arms-series--s-Passionate-Ring\SevenArmsSeries.Repositories\bin\Release\SevenArmsSeries.Repositories.dll
+D:\GitHub\seven-arms-series--s-Passionate-Ring\seven-arms-series--s-Passionate-Ring\SevenArmsSeries.Repositories\bin\Release\SevenArmsSeries.Repositories.pdb
+D:\GitHub\seven-arms-series--s-Passionate-Ring\seven-arms-series--s-Passionate-Ring\SevenArmsSeries.Repositories\obj\Release\SevenArmsSeries.Repositories.dll
+D:\GitHub\seven-arms-series--s-Passionate-Ring\seven-arms-series--s-Passionate-Ring\SevenArmsSeries.Repositories\obj\Release\SevenArmsSeries.Repositories.pdb
+E:\Work\GitHub\seven-arms-series--s-Passionate-Ring\SevenArmsSeries.Repositories\bin\Release\SevenArmsSeries.Repositories.dll
+E:\Work\GitHub\seven-arms-series--s-Passionate-Ring\SevenArmsSeries.Repositories\bin\Release\SevenArmsSeries.Repositories.pdb
+E:\Work\GitHub\seven-arms-series--s-Passionate-Ring\SevenArmsSeries.Repositories\obj\Release\ResolveAssemblyReference.cache
+E:\Work\GitHub\seven-arms-series--s-Passionate-Ring\SevenArmsSeries.Repositories\obj\Release\SevenArmsSeries.Repositories.dll
+E:\Work\GitHub\seven-arms-series--s-Passionate-Ring\SevenArmsSeries.Repositories\obj\Release\SevenArmsSeries.Repositories.pdb

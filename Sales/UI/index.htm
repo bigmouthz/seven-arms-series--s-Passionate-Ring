@@ -1,0 +1,32 @@
+﻿<!doctype html>
+<html>
+<head>
+<title>SeaJs Test</title>
+<meta charset="UTF-8">
+
+<script src="/scripts/seajs/2.2.0/sea-debug.js" id="seajsnode" ></script>
+<script src="/scripts/seajscommon/init.js" type="text/javascript"></script>
+<script src="/scripts/jeasyui/jquery.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+    seajs.use("../seajscommon/init");
+    seajs.use("console", function (console) {
+        console.log("Test!!!");
+    });
+
+    $.messager.alert("操作提示", "data.Message");
+
+</script>
+</head>
+<body>
+	<div class="main">
+		<h1>信息</h1>
+		<ul>
+			<li id="s1"></li>
+			<li id="s2"></li>
+			<li id="s3"></li>
+		</ul>
+	</div>
+</body>
+</html>

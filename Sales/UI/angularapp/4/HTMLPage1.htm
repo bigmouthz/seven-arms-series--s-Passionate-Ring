@@ -1,0 +1,19 @@
+﻿<!doctype html>
+<html ng-app>
+<head>
+    <script src="/Scripts/angular/angular.js" type="text/javascript"></script>
+    <script src="JScript1.js" type="text/javascript"></script>
+</head>
+<body>
+    <div ng-controller="EmployeeController">
+        Manager: {{employee.name}} [ {{department}} ]<br>
+        Reports:
+        <ul>
+            <li ng-repeat="employee in employee.reports">{{employee.name}} [ {{department}} ]
+            </li>
+        </ul>
+        <hr>
+        {{greeting}}
+    </div>
+</body>
+</html>

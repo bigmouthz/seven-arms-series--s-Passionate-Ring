@@ -1,0 +1,17 @@
+E:\Work\GitHub\seven-arms-series--s-Passionate-Ring\SevenArmsSeries.PassionateRing\obj\Debug\ResolveAssemblyReference.cache
+E:\Work\GitHub\seven-arms-series--s-Passionate-Ring\SevenArmsSeries.PassionateRing\bin\Debug\SevenArmsSeries.PassionateRing.dll
+E:\Work\GitHub\seven-arms-series--s-Passionate-Ring\SevenArmsSeries.PassionateRing\bin\Debug\SevenArmsSeries.PassionateRing.pdb
+E:\Work\GitHub\seven-arms-series--s-Passionate-Ring\SevenArmsSeries.PassionateRing\obj\Debug\SevenArmsSeries.PassionateRing.dll
+E:\Work\GitHub\seven-arms-series--s-Passionate-Ring\SevenArmsSeries.PassionateRing\obj\Debug\SevenArmsSeries.PassionateRing.pdb
+D:\GitHub\seven-arms-series--s-Passionate-Ring\SevenArmsSeries.PassionateRing\bin\Debug\SevenArmsSeries.PassionateRing.dll
+D:\GitHub\seven-arms-series--s-Passionate-Ring\SevenArmsSeries.PassionateRing\bin\Debug\SevenArmsSeries.PassionateRing.pdb
+D:\GitHub\seven-arms-series--s-Passionate-Ring\SevenArmsSeries.PassionateRing\bin\Debug\IronJS.dll
+D:\GitHub\seven-arms-series--s-Passionate-Ring\SevenArmsSeries.PassionateRing\bin\Debug\IronJS.Runtime.dll
+D:\GitHub\seven-arms-series--s-Passionate-Ring\SevenArmsSeries.PassionateRing\bin\Debug\IronJS.xml
+D:\GitHub\seven-arms-series--s-Passionate-Ring\SevenArmsSeries.PassionateRing\bin\Debug\IronJS.Runtime.xml
+D:\GitHub\seven-arms-series--s-Passionate-Ring\SevenArmsSeries.PassionateRing\obj\Debug\SevenArmsSeries.PassionateRing.dll
+D:\GitHub\seven-arms-series--s-Passionate-Ring\SevenArmsSeries.PassionateRing\obj\Debug\SevenArmsSeries.PassionateRing.pdb
+E:\Work\GitHub\seven-arms-series--s-Passionate-Ring\SevenArmsSeries.PassionateRing\bin\Debug\IronJS.dll
+E:\Work\GitHub\seven-arms-series--s-Passionate-Ring\SevenArmsSeries.PassionateRing\bin\Debug\IronJS.Runtime.dll
+E:\Work\GitHub\seven-arms-series--s-Passionate-Ring\SevenArmsSeries.PassionateRing\bin\Debug\IronJS.xml
+E:\Work\GitHub\seven-arms-series--s-Passionate-Ring\SevenArmsSeries.PassionateRing\bin\Debug\IronJS.Runtime.xml

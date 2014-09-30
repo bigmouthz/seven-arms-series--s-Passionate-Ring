@@ -1,0 +1,4 @@
+D:\GitHub\seven-arms-series--s-Passionate-Ring\SevenArmSeries.UIAngular\bin\SevenArmSeries.UIAngular.dll
+D:\GitHub\seven-arms-series--s-Passionate-Ring\SevenArmSeries.UIAngular\bin\SevenArmSeries.UIAngular.pdb
+D:\GitHub\seven-arms-series--s-Passionate-Ring\SevenArmSeries.UIAngular\obj\Debug\SevenArmSeries.UIAngular.dll
+D:\GitHub\seven-arms-series--s-Passionate-Ring\SevenArmSeries.UIAngular\obj\Debug\SevenArmSeries.UIAngular.pdb

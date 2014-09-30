@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="gb2312">
+    <title>客户注册</title>
+    <link rel="stylesheet" type="text/css" href="/scripts/jeasyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/scripts/jeasyui/themes/icon.css">
+
+    <script type="text/javascript" src="/scripts/jeasyui/jquery.min.js"></script>
+    <script type="text/javascript" src="/scripts/jeasyui/jquery.easyui.min.js"></script>
+    <script src="/scripts/jeasyui/locale/easyui-lang-zh_CN.js" type="text/javascript"></script>
+
+    <script src="/Scripts/unit/json2.js" type="text/javascript"></script>
+    <script src="/Scripts/unit/date.js" type="text/javascript"></script>
+    <script src="/Scripts/unit/guid.js" type="text/javascript"></script>
+    <script src="/Scripts/unit/jeasyui.datagrid.editors.extend.js" type="text/javascript"></script>
+   
+    <script src="index.js" type="text/javascript"></script>
+    <script src="index-store.js" type="text/javascript"></script>
+    <script src="index-query.js" type="text/javascript"></script>
+    <script src="index-datagrid.js" type="text/javascript"></script>
+</head>
+<body>
+    <!-- 表格 主体-->
+    <table id="dg">
+    </table>
+    <!-- 表格 工具栏 -->
+    <div id="dg_tb" style="padding: 5px; height: auto">
+        <!-- 表格 工具栏 命令行-->
+        <div id="dg_cmd" style="margin-bottom: 5px">
+            <a href="#" class="easyui-linkbutton" iconcls="icon-add" plain="true" onclick="dgadd('dg')">
+                添加</a> <a href="#" class="easyui-linkbutton" iconcls="icon-edit" plain="true" onclick="dgedit('dg')">
+                    编辑</a> <a href="#" class="easyui-linkbutton" iconcls="icon-remove" plain="true" onclick="dgremove('dg')">
+                        删除</a> <a href="#" class="easyui-linkbutton" iconcls="icon-cancel" plain="true" onclick="endEdit('dg')">
+                            结束编辑</a> <a href="#" class="easyui-linkbutton" iconcls="icon-save" plain="true" onclick="dgsave('dg')">
+                                保存</a>
+        </div>
+        <!-- 表格 工具栏 查询区域-->
+        <table id="dg_query" >
+         <tr>
+         <td>
+         字段名:<!--字段列表 field|title|type|opeation-->
+         <input id="dg_q_fields" />
+         <!--比较符列表:-->
+         <input id="dg_q_fields_operate" />
+         </td>
+
+         <!-- 字符串查询 -->
+         <td id="dg_q_fields_string" hidden="true">  字符串查询          
+            <input id="dg_q_fields_string_content_left" type="checkbox" value="%" checked="checked" />
+            <input id="dg_q_fields_string_content" type="text" value=""  style="line-height:21px;border:1px solid #ccc" />
+            <input id="dg_q_fields_string_content_right" type="checkbox" value="%" checked="checked" />
+        </td>
+
+        <!-- 日期查询（非between）-->
+        <td id="dg_q_fields_datebox_content_single" hidden="true">日期查询（非between）
+            <input id="dg_q_fields_datebox_content" class="easyui-datebox" />
+        </td>
+        <!-- 日期查询（between）-->
+        <td id="dg_q_fields_datebox_content_between" hidden="true">日期查询（between）
+           <input id="dg_q_fields_datebox_content_left" class="easyui-datebox" />
+           -
+           <input id="dg_q_fields_datebox_content_right" class="easyui-datebox" />
+        </td>
+       
+        <!-- 日期时间查询（非between）-->
+        <td id="dg_q_fields_datetimebox_content_single" hidden="true">日期时间查询（非between）
+            <input id="dg_q_fields_datetimebox_content" class="easyui-datetimebox" />
+        </td>
+        <!-- 日期时间查询（between）-->
+        <td id="dg_q_fields_datetimebox_content_between" hidden="true">日期时间查询（between）
+           <input id="dg_q_fields_datetimebox_content_left" class="easyui-datetimebox" />
+           -
+           <input id="dg_q_fields_datetimebox_content_right" class="easyui-datetimebox" />
+        </td>
+
+        <!-- 数字查询（非between）-->
+        <td id="dg_q_fields_numberbox_content_single" hidden="true">数字查询（非between）
+            <input id="dg_q_fields_numberbox_content" class="easyui-datetimebox" />
+        </td>
+        <!-- 数字查询（between）-->
+        <td id="dg_q_fields_numberbox_content_between" hidden="true">数字查询（between）
+           <input id="dg_q_fields_numberbox_content_left" class="easyui-datetimebox" />
+           -
+           <input id="dg_q_fields_numberbox_content_right" class="easyui-datetimebox" />
+        </td>
+
+        <!-- Combobox查询-->
+        <td id="dg_q_fields_combobox" hidden="true">Combobox查询
+         <input id="dg_q_fields_combobox_content" />
+         </td>
+
+         <!-- Combotree查询-->
+        <td id="dg_q_fields_combotree" hidden="true">Combotree查询
+         <input id="dg_q_fields_combotree_content" />
+         </td>
+         <td>
+            <a href="#" class="easyui-linkbutton" iconcls="icon-search" plain="true" onclick="query(false);">
+                查询</a> <a href="#" class="easyui-linkbutton" iconcls="icon-research" plain="true"
+                    onclick="query(true);">重新检索</a> <a href="#" class="easyui-linkbutton" iconcls="icon-search"
+                        plain="true" onclick=" $('#dg_advanc_query').dialog('open');">高级查询</a>
+           </td>  
+           </tr>
+        </table>
+
+        <!-- 表格 工具栏 高级查询区域-->
+        <div id="dg_advanc_query" class="easyui-dialog" title="高级查询" closed="true" style="width: 645px;
+            height: 485px; padding: 5px; background: #fafafa;">
+            <p>
+                空白</p>
+        </div>
+    </div>
+    <div id="dg_menu" style="width:100px;"></div>
+
+</body>
+</html>

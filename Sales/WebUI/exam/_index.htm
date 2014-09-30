@@ -1,0 +1,78 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>试题库</title>
+    <script type="text/javascript" src="/scripts/jeasyui/jquery.min.js"></script>
+    <script type="text/javascript" src="/Scripts/unit/jquery.cookie.js"></script>
+    <link rel="stylesheet" type="text/css" href="/scripts/jeasyui/themes/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="/scripts/jeasyui/themes/icon.css" />
+    <script type="text/javascript" src="/scripts/jeasyui/jquery.easyui.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/scripts/jeasyui/jquery.countdown.css" />
+    <script type="text/javascript" src="/scripts/jeasyui/jquery.countdown.js"></script>
+    <script src="/Scripts/unit/common.js" type="text/javascript"></script>
+    <script src="/Scripts/unit/date.js" type="text/javascript"></script>
+    <script src="/Scripts/unit/json2.js" type="text/javascript"></script>
+    <script src="_exam.js" type="text/javascript"></script>
+    <script src="_index-app.js" type="text/javascript"></script>
+    <script language="Javascript">
+        document.onkeydown = function () {
+            if (event.ctrlKey && event.keyCode == 67) {
+                event.returnValue = false;
+            }
+
+            if ((event.keyCode == 116) || (window.event.ctrlKey) || (window.event.shiftKey) || (event.keyCode == 122)) {
+                event.keyCode = 0;
+                event.returnValue = false;
+            }
+
+        }
+        document.oncontextmenu = function () { event.returnValue = false; }
+
+    </script>
+</head>
+<body id="body" onbeforeunload="return CheckUnLeave();">
+    <h2>
+        试题库</h2>
+    <!--登录信息-->
+    <div id="login">
+    </div>
+    <!--计时器-->
+    <div id="timecounter">
+    </div>
+    <!--笼罩层-->
+    <div id="mask" class="mask">
+        <div style="padding: 350px;">
+            <font size="8" color="red"><b>答卷完成！！！</b></font><br />
+            <font size="8" color="red"><b>答卷完成！！！</b></font><br />
+            <font size="8" color="red"><b>答卷完成！！！</b></font>
+        </div>
+    </div>
+    <!--试题展示层-->
+    <div id="tt">
+    </div>
+    <br />
+    <!--交卷-->
+    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="common.maskshow('mask'); if(confirm('您确认交卷?')){submit();}else{ common.maskhidden('mask');}">
+        <font size="4" color="black"><b>交卷</b></font> </a>
+    <div id="topimg">
+        GoTop</div>
+    <!--弹出考试结果展示框-->
+    <div id="answer" class="easyui-dialog" title="结果" closed="true" style="width: 400px;
+        height: 300px; padding: 5px; background: #fafafa;">
+        <font size="8" color="red"><b>
+            <p id="score">
+                得分</p>
+        </b></font>
+        <script language="Javascript">
+            if (this.parent == this) {
+                document.write('<a href="javascript:void(0)" class="easyui-linkbutton" onclick="$.cookie(\'exam-login\',null);common.close();">退出考试系统</a>');
+            }
+        </script>
+    </div>
+    </div>
+    <noscript>
+        <iframe scr="*.htm"></iframe>
+    </noscript>
+</body>
+</html>

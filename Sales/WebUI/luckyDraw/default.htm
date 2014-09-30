@@ -1,0 +1,110 @@
+<html> 
+<title>抽奖程序  --》请使用google的最新版chrome浏览器</title> 
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=gb2312"> 
+    <link rel="stylesheet" type="text/css" href="JsLib/jeasyui/themes/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="JsLib/jeasyui/themes/icon.css" />
+
+    <script src="JsLib/jquery.min.js" type="text/javascript"></script>
+    <script src="JsLib/jquery.cookie.js" type="text/javascript"></script>
+    <script src="JsLib/jeasyui/jquery.easyui.min.js" type="text/javascript" ></script>
+    
+    <script src="JsLib/Underscore.js" type="text/javascript"></script>
+    <script src="JsLib/common.js" type="text/javascript"></script>
+	<script src="luckydraw-data.js" type="text/javascript"></script>
+	<script src="luckydraw-app.js" type="text/javascript"></script>
+
+<style>
+body
+{
+    background: url(bg.jpg);
+    background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+* { 
+margin:0; 
+padding:0; 
+} 
+html, 
+body, 
+#box { 
+height:100%; 
+font-size:1.5em;
+font-family:SimHei;
+color:black;
+} 
+body { 
+text-align:center; 
+} 
+#box { 
+text-align:left; 
+display:table; 
+width:95%; 
+margin:0 auto; 
+position:relative; 
+} 
+#box > div { 
+display:table-row; 
+} 
+#header, 
+#footer { 
+height:40px; 
+} 
+#main #wrap { 
+display:table-cell; 
+vertical-align:middle; 
+} 
+#text { 
+text-align:center; 
+} 
+
+</style> 
+</head> 
+<body onbeforeunload="return CheckUnLeave();"> 
+
+<!-- 加入动画flash底层图画 ，如无需动画，可以注释到 本div里的table-->
+<div style="z-index:1; position:absolute; top:auto; left:5; border:'0' 'border-style' '#ffffff'; width:100%; height:100% ">
+    <table width="100%" ><tr>
+    <td><embed src="horse.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="345px" height="188px" wmode="transparent"></embed></td>
+    <td ><embed src="horse.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="345px" height="188px" wmode="transparent"></embed></td> 
+    <td ><embed src="horse.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="345px" height="188px" wmode="transparent"></embed></td>
+    <td><embed src="horse.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="345px" height="188px" wmode="transparent"></embed></td>
+    </tr></table>
+</div>
+
+<div id="box" style="z-index:2; position:absolute; top:0; border:'0' 'border-style' '#ffffff'; width:100%; height:100% ">
+
+    <div id="header"></div> 
+
+    <div id="main">
+        <div id="wrap"> 
+ 		<center ><div id="showresult" ></div></center>                
+           <div id="text">
+				<div  id="ListWin" ></div>
+                <input type="hidden" id="showresultid"   />
+            </div> 
+        </div> 
+    </div> 
+
+    <div id="footer"> 
+        <span  >
+			<span style="float:center">
+				<select class="easyui-combobox" id="cc" style="width:200px;"></select>
+				<input type="text" id="cnt" value="1" style="width:48px;line-height:21px;border:1px solid #ccc;text-align:center;" />
+				<a href="#" class="easyui-linkbutton" plain="false" onclick="start();"  id="btnstart"><B><font size='3'>开始</font></B></a>
+				<a href="#" class="easyui-linkbutton" plain="false" onclick="ok();" id="btnstop"><B><font size='3'>停止</font></B></a>
+			</span>
+			<span style="float:right">
+				<a href="#" class="easyui-linkbutton" plain="false" onclick="view(-1);"><B><font size='3'>抽奖结果</font></B></a> 
+				<a href="#" class="easyui-linkbutton" plain="false" onclick="view(0);"><B><font size='3'>清屏</font></B></a>
+
+                 <input type="text" id="pwd" value="1" style="width:48px;line-height:21px;border:1px solid #ccc;text-align:center;" />
+				<a href="#" class="easyui-linkbutton" plain="false" onclick="cacheclear();"><B><font size='3'>重置缓存</font></B></a>
+			</span>
+        </span>
+    </div> 
+
+</div>
+</body> 
+</html>

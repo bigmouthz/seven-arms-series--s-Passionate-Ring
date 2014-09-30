@@ -1,0 +1,16 @@
+﻿<!doctype html>
+<html ng-app="MyServiceModuleDI">
+<head>
+   <script src="/Scripts/angular/angular.js" type="text/javascript"></script>
+    <script src="JScript1.js" type="text/javascript"></script>
+</head>
+<body>
+    <div ng-controller="myController">
+        <p>
+            Let's try the notify service, that is implicitly injected into the controller...</p>
+        <input ng-init="message='test'" ng-model="message">
+        <button ng-click="callNotify(message);">
+            NOTIFY</button>
+    </div>
+</body>
+</html>

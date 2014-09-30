@@ -1,0 +1,9 @@
+﻿*{
+	font-size: 18px;
+	font-family: "Tahoma,Arial,Helvetica,sans-serif";
+}
+.main{
+	width: 500px;
+	height: 300px;
+	margin: 50px auto;
+}

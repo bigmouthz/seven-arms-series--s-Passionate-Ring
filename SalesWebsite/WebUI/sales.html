@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="gb2312">
+    <title>全民营销</title>
+    <link rel="stylesheet" type="text/css" href="../jeasyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../jeasyui/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="../Content/sales.css">    
+    <script type="text/javascript" src="../jeasyui/jquery.min.js"></script>
+    <script type="text/javascript" src="../jeasyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../Scripts/json2.js" ></script>
+    <script type="text/javascript">
+        var debug = false;
+    </script>
+</head>
+<body>
+    <div class="demo-info">
+        <div style="margin: 10px 0;">
+        </div>
+        <div class="easyui-panel" title="全民营销" style="width: 400px">
+            <div style="padding: 10px 0 10px 60px">
+                <from id="ff" >
+                <table>
+                    <tr>
+                        <td>
+                            营销项目:
+                        </td>
+                        <td>
+                            <input id="cc" class="easyui-combogrid" style="width: 206px" data-options="
+			panelWidth: 280,
+			idField: 'ProjGuid',
+			textField: 'ProjName',
+			url: '../api/Sales/GetProjects?json=true',
+			method: 'get',
+			columns: [[
+				{field:'ProjGuid',title:'ProjGuid',width:80,hidden:true},
+				{field:'ProjName',title:'项目名称',width:120},
+				{field:'BUGuid',title:'BUGuid',width:80,hidden:true},
+			]],
+			fitColumns: true,
+            required:true
+		">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            客户姓名:
+                        </td>
+                        <td>
+                            <input class="easyui-validatebox" type="text" id="CstName" name="CstName" data-options="required:true,messages:{required:'请输入内容'}"
+                                style="width: 200px;"></input>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            客户性别:
+                        </td>
+                        <td>
+                            <select class="easyui-combobox" id="Gender" name="Gender" data-options="required:true,messages:{required:'请输入内容'}"
+                                style="width: 206px;">
+                                <option value="男">先生</option>
+                                <option value="女">女士</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            客户手机:
+                        </td>
+                        <td>
+                            <input class="easyui-validatebox" type="text" id="MobileTel" name="MobileTel" data-options="required:true"
+                                style="width: 200px;"></input>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div style="text-align: center; padding: 5px">
+                                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="CheckRegister()">验证客户</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            推荐人姓名:
+                        </td>
+                        <td>
+                            <input class="easyui-validatebox" type="text" id="TjrName" name="TjrName" data-options="required:true"
+                                style="width: 200px;"></input>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            推荐人电话:
+                        </td>
+                        <td>
+                            <input class="easyui-validatebox" type="text" id="TjrMoblieTel" name="TjrMoblieTel"
+                                data-options="required:true" style="width: 200px;"></input>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            推荐人证件号:
+                        </td>
+                        <td>
+                            <input class="easyui-validatebox" type="text" id="TjrCarid" name="TjrCarid" data-options="required:true"
+                                style="width: 200px;"></input>
+                        </td>
+                    </tr>
+                </table>
+                </from>
+            </div>
+            <div style="text-align: center; padding: 5px">
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()">提交</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()">重置</a>
+            </div>
+        </div>
+        <script>
+  
+        function CheckRegister() {
+            var tProjGuid = $('#cc').combogrid('getValue');
+            var tCstName = $('#CstName').val();
+            var tMobileTel = $('#MobileTel').val();
+            if (debug) {
+                console.log(tProjGuid + '|' + tCstName + '|' + tMobileTel);
+            }
+
+            var data = { "ProjGuid": tProjGuid,
+                "CstName": tCstName,
+                "MobileTel": tMobileTel
+            };
+
+            if (debug) { console.log(data); }
+            $.ajax({
+                type: "POST",
+                url: '../api/Sales/IsExistsRegister',
+                dataType: "json",
+                contentType: "application/json",
+                data: JSON.stringify(data),
+                timeout: 1000,
+                error: function (xhr, textStatus, errorThrown) {
+                    if (debug) { console.log(xhr.responseText); }
+                },
+                success: function (data) {
+                    $.messager.alert("操作提示", data.Message); 
+                }
+            });
+        }
+
+        function submitForm() {
+            var g = $('#cc').combogrid('grid');
+            var r = g.datagrid('getSelected');
+
+            var tProjGuid = r.ProjGuid;
+            var tProjName = r.ProjName;
+            var tBUGuid = r.BUGuid;
+            var tCstName = $('#CstName').val();
+            var tMobileTel = $('#MobileTel').val();
+            var tGender = $('#Gender').combobox('getValue');
+            var tTjrName = $('#TjrName').val();
+            var tTjrMoblieTel = $('#TjrMoblieTel').val();
+            var tTjrCarid = $('#TjrCarid').val();
+            if (debug) {
+                console.log('1:' + tProjGuid + '|' + tProjName + '|' + tBUGuid);
+                console.log('2:' + tCstName + '|' + tMobileTel + '|' + tGender);
+                console.log('3:' + tTjrName + '|' + tTjrMoblieTel + '|' + tTjrCarid);
+            }
+
+            $.messager.progress();
+
+            var data = {
+                "ProjGuid": tProjGuid,
+                "ProjName": tProjName,
+                "BUGuid": tBUGuid,
+                "CstName": tCstName,
+                "MobileTel": tMobileTel,
+                "Gender": tGender,
+                "TjrName": tTjrName,
+                "TjrMoblieTel": tTjrMoblieTel,
+                "TjrCarid": tTjrCarid
+            };
+            if (debug) {
+                console.log(data);
+            }
+            $.ajax({
+                type: "POST",
+                url: '../api/Sales/CreateRegister',
+                dataType: "json",
+                contentType: "application/json",
+                data: JSON.stringify(data),
+                cache: false,
+                async: true,
+                success: function (data) {
+                    $.messager.progress('close');
+                    $.messager.alert("操作提示", data.Message); 
+                    if (debug) { console.log(data); }
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    if (debug) { console.log(xhr.responseText); }
+                    $.messager.progress('close');
+                }
+            });
+
+        }
+
+        function clearForm() {
+            $('#ff').form('clear');
+        }
+
+        </script>
+</body>
+</html>

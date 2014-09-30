@@ -1,0 +1,15 @@
+﻿<!doctype html>
+<html ng-app="MyReverseModule">
+<head>
+    <script src="/Scripts/angular/angular.js" type="text/javascript"></script>
+    <script src="JScript1.js" type="text/javascript"></script>
+</head>
+<body>
+    <div ng-controller="Ctrl">
+        <input ng-model="greeting" type="greeting"><br>
+        No filter: {{greeting}}<br>
+        Reverse: {{greeting|reverse}}<br>
+        Reverse + uppercase: {{greeting|reverse:true}}<br>
+    </div>
+</body>
+</html>

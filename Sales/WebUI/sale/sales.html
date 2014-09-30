@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="gb2312">
+    <title>财富共享计划</title>
+    <link rel="stylesheet" type="text/css" href="/scripts/jeasyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/scripts/jeasyui/themes/icon.css">
+    <script type="text/javascript" src="/scripts/jeasyui/jquery.min.js"></script>
+    <script type="text/javascript" src="/scripts/jeasyui/jquery.easyui.min.js"></script>
+    <script src="/Scripts/unit/json2.js" type="text/javascript"></script>
+    <script src="sales.js" type="text/javascript"></script>
+
+    <!--<link rel="stylesheet" type="text/css" href="sales.css">
+    <style>
+        div
+        {
+            background: url(../images/bg.jpg);
+            background-size: 100% 100%;
+            -moz-background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+    </style>-->
+</head>
+<body>
+    <div class="easyui-panel" title="财富共享计划" style="width: 400px">
+        <div style="padding: 10px 0 10px 60px">
+            <from id="ff">
+            <table>
+                <tr>
+                    <td>
+                        营销项目:
+                    </td>
+                    <td>
+                        <input id="cc" class="easyui-combogrid" style="width: 206px"  missingMessage="请选择营销项目！" invalidMessage="填写错误！" data-options="
+		panelWidth: 280,
+		idField: 'ProjGuid',
+		textField: 'ProjName',
+		url: '/api/Sales/GetProjects',
+		method: 'get',
+		columns: [[
+			{field:'ProjGuid',title:'ProjGuid',width:80,hidden:true},
+			{field:'ProjName',title:'项目名称',width:120},
+			{field:'BUGuid',title:'BUGuid',width:80,hidden:true},
+		]],
+		fitColumns: true,
+        required:true
+	">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        客户姓名:
+                    </td>
+                    <td>
+                        <input class="easyui-validatebox" type="text" id="CstName" name="CstName" missingMessage="请输入内容" invalidMessage="填写错误！" data-options="required:true"
+                            style="width: 200px;"></input>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        客户性别:
+                    </td>
+                    <td>
+                        <select class="easyui-combobox" id="Gender" name="Gender" missingMessage="请输入内容" invalidMessage="填写错误！"data-options="required:true"
+                            style="width: 206px;">
+                            <option value="男">先生</option>
+                            <option value="女">女士</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        客户手机:
+                    </td>
+                    <td>
+                        <input class="easyui-validatebox" type="text" id="MobileTel" name="MobileTel"  missingMessage="请输入内容" invalidMessage="填写错误！"data-options="required:true"
+                            style="width: 200px;"></input>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div style="text-align: center; padding: 5px">
+                        方圆业主:&nbsp;&nbsp;<input type="checkbox" align="right" id="Isyz" name="Isyz" value="1" >&nbsp;&nbsp;&nbsp;&nbsp;</input>
+                        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="CheckRegister()">验证客户</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        推荐人姓名:
+                    </td>
+                    <td>
+                        <input class="easyui-validatebox" type="text" id="TjrName" name="TjrName"  missingMessage="请输入内容" invalidMessage="填写错误！"data-options="required:true" 
+                            style="width: 200px;"></input>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        推荐人电话:
+                    </td>
+                    <td>
+                        <input class="easyui-validatebox" type="text" id="TjrMoblieTel" name="TjrMoblieTel"  missingMessage="请输入内容" invalidMessage="填写错误！"data-options="required:true"
+                            style="width: 200px;"></input>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        推荐人证件号:
+                    </td>
+                    <td>
+                        <input class="easyui-validatebox" type="text" id="TjrCarid" name="TjrCarid"  missingMessage="请输入内容" invalidMessage="填写错误！"data-options="required:true"
+                            style="width: 200px;"></input>
+                    </td>
+                </tr>
+            </table>
+            </from>
+        </div>
+        <div style="text-align: center; padding: 5px">
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()">提交</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()">重置</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">   
+
+    <title>试题库</title>
+    <script type="text/javascript" src="/scripts/jeasyui/jquery.min.js"></script>
+    <script type="text/javascript" src="/Scripts/unit/jquery.cookie.js" ></script>
+
+    <link rel="stylesheet" type="text/css" href="/scripts/jeasyui/themes/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="/scripts/jeasyui/themes/icon.css" />
+    <script type="text/javascript" src="/scripts/jeasyui/jquery.easyui.min.js"></script>
+
+    <script src="/Scripts/unit/common.js" type="text/javascript"></script>
+     <script src="/Scripts/unit/date.js" type="text/javascript"></script>
+    <script src="/Scripts/unit/json2.js" type="text/javascript"></script>
+    <script src="_createquestion.js" type="text/javascript"></script>
+
+</head>
+<body id="body" >
+    <h2>试题库导入</h2>
+    <input type="text" title="" id="importExam" value="" />
+    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="SetExamQuestion($('#importExam').attr('value'));">导入</a>
+</body>
+</html>

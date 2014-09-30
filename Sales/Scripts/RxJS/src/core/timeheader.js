@@ -1,0 +1,18 @@
+    // Refernces
+    var Observable = Rx.Observable,
+        observableProto = Observable.prototype,
+        AnonymousObservable = Rx.Internals.AnonymousObservable,
+        observableDefer = Observable.defer,
+        observableEmpty = Observable.empty,
+        observableNever = Observable.never,
+        observableThrow = Observable.throwException,
+        observableFromArray = Observable.fromArray,
+        timeoutScheduler = Rx.Scheduler.timeout,
+        SingleAssignmentDisposable = Rx.SingleAssignmentDisposable,
+        SerialDisposable = Rx.SerialDisposable,
+        CompositeDisposable = Rx.CompositeDisposable,
+        RefCountDisposable = Rx.RefCountDisposable,
+        Subject = Rx.Subject,
+        BinaryObserver = Rx.Internals.BinaryObserver,
+        addRef = Rx.Internals.addRef,
+        normalizeTime = Rx.Scheduler.normalize;

@@ -1,0 +1,223 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>交叉报表展示</title>
+    <link rel="stylesheet" type="text/css" href="/scripts/jeasyui/themes/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="/scripts/jeasyui/themes/icon.css" />
+    <script type="text/javascript" src="/scripts/jeasyui/jquery.min.js"></script>
+    <script type="text/javascript" src="/scripts/jeasyui/jquery.easyui.min.js"></script>
+    <script src="/Scripts/unit/json2.js" type="text/javascript"></script>
+    <script src="/scripts/artTemplate-2.0.2/template.js" type="text/javascript"></script>
+    <script src="/Scripts/unit/common.js" type="text/javascript"></script>
+    <script src="projectkmmap-App.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var n = common.getRanNum(0, 10, 2);
+        //    alert(n); 
+    </script>
+    <style type="text/css">
+        #tipPanel
+        {
+            background: white;
+            padding: 6px 8px;
+            width: 300px;
+            border: solid 4px #09c;
+            font-size: 14px;
+            color: #555;
+        }
+        #tipPanel p
+        {
+            margin: 0px;
+        }
+        #tipPanel b
+        {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+    <style type="text/css">
+<!--
+BODY
+{
+    BACKGROUND-COLOR: white;
+    COLOR: black;
+    FONT-FAMILY: 宋体;
+    FONT-SIZE: 12pt
+}
+A:link {
+	COLOR: #330099; TEXT-DECORATION: none;FONT-SIZE: 9pt
+}
+A:visited {
+	COLOR: gray; TEXT-DECORATION: none; FONT-SIZE: 9pt
+}
+A:active {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #3366cc; TEXT-DECORATION: none
+}
+-->
+</style>
+</head>
+<body>
+    <div id="content">
+        <!-- class="easyui-accordion" > -->
+        <div title="规范指引" data-options="iconCls:'icon-ok'" style="overflow: auto; padding: 10px;">
+            <div id="dg1">
+            </div>
+        </div>
+        <div title="项目文件" data-options="iconCls:'icon-ok'" style="overflow: auto; padding: 10px;">
+            <input id="cc" class="easyui-combobox" style="width: 206px" missingmessage="请选择营销项目！"
+                invalidmessage="填写错误！" />
+            <div id="dg2">
+            </div>
+        </div>
+        <div title="项目考核" data-options="iconCls:'icon-ok'" style="overflow: auto; padding: 10px;">
+            <div id="dg3">
+            </div>
+        </div>
+    </div>
+    <script id="crosstable1" type="text/html">
+<table id='xdg1' cellspacing=1 border=1 class='easyui-datagrid'  data-options='fitColumns: false, stripe: true, nowrap: false,singleSelect: false'>
+    <thead>
+        <tr>
+            <%include('dynamicheadByNodeFiles')%>
+        </tr>
+    </thead>
+    <tbody>
+        <%include('dynamicontent')%>      
+    </tbody>
+</table>
+    </script>
+    <script id="crosstable2" type="text/html">
+<table id='xdg2' cellspacing=1 border=1 class='easyui-datagrid' >
+    <thead>
+        <tr>
+            <%include('dynamicheadByProjectNodeFiles')%>
+        </tr>
+    </thead>
+    <tbody>
+        <%include('dynamicontent')%>   
+    </tbody>
+</table>
+    </script>
+    <script id="crosstable3" type="text/html">
+<table id='xdg3'  class='easyui-datagrid' >
+    <thead>
+        <tr>
+            <%include('dynamichead')%>
+        </tr>
+    </thead>
+    <tbody>    
+        <%include('dynamicontent')%>      
+    </tbody>
+</table>
+    </script>
+    <script id="dynamicheadByNodeFiles" type="text/html">
+<% var i = 0; %>
+<% for(j = 1; j < CColTotal; j ++) {%>
+    <th id='<%= tablename+"_"+i+"_"+j%>' field='<%="H" + i + "_" + j %>'  width='150'><a href="javascript:void(0)" onclick="openNodeFiles('<%=j%>')"> 
+        <% for(var row in Rows){ %>      
+            <%if (Rows[row].CRow == i && Rows[row].CCol == j){%>
+                <% include('dynamicell', Rows[row]); break; %>                  
+                <% }%>
+        <% } %>
+</a>    </th>
+ <%}%>
+    </script>
+    <script id="dynamicheadByProjectNodeFiles" type="text/html">
+<% var i = 0; %>
+<% for(j = 1; j < CColTotal; j ++) {%>
+    <th id='<%= tablename+"_"+i+"_"+j%>' field='<%="H" + i + "_" + j %>'  width='150'><a href="javascript:void(0)" onclick="openProjectNodeFiles('<%=j%>')"> 
+        <% for(var row in Rows){ %>      
+            <%if (Rows[row].CRow == i && Rows[row].CCol == j){%>
+                <% include('dynamicell', Rows[row]); break; %>                  
+                <% }%>
+        <% } %>
+</a>    </th>
+ <%}%>
+    </script>
+    <script id="dynamichead" type="text/html">
+<% var i = 0; %>
+<% for(j = 1; j < CColTotal; j ++) {%>
+    <th id='<%= tablename+"_"+i+"_"+j%>' field='<%="H" + i + "_" + j %>' width='150'> 
+        <% for(var row in Rows){ %>      
+            <%if (Rows[row].CRow == i && Rows[row].CCol == j){%>
+                <% include('dynamicell', Rows[row]); break; %>                  
+                <% }%>
+        <% } %>
+    </th>
+ <%}%>
+    </script>
+    <script id="dynamicontent" type="text/html">
+    <% for(var i = 1; i <CRowTotal; i++) { %>
+             <tr valign="top">
+               <% for(var j =1; j <CColTotal; j++){%>
+                      <td id='<%= tablename+"_"+i+"_"+j%>'  align="left" valign="top">
+                      <% for(var row in Rows){ %>                     
+                       
+                          <%if (Rows[row].CRow == i && Rows[row].CCol == j){%>
+                                <% include('dynamicell', Rows[row]); %>                  
+                              <% }%>
+                      <% } %>
+
+                     </td>
+                    <% }%>
+             </tr>
+          <%}%>
+    </script>
+    <script id="dynamicell" type="text/html">
+<% CValue = $sw(CValue);%>
+<%
+    switch(CType){
+     case "ProjectHead":
+          include('dynamicellProjectHead', CValue);
+          break;
+     case "NodeHead":
+          include('dynamicellNodeHead', CValue);
+          break;
+     case "NodeFiles":
+          CValue = $rp(CValue);
+          include('dynamicellNodeFiles', CValue);
+          break;
+     case "ProjectNodeValue":
+          include('dynamicellProjectNodeValue', CValue);
+          break;
+     case "ProjectNodeFiles":
+          CValue = $rp(CValue);
+          include('dynamicellProjectNodeFiles', CValue);
+          break;
+    }
+ %>
+    </script>
+    <script id="dynamicellProjectHead" type="text/html">
+<%= projecthead ?  projecthead  : ""; %>
+    </script>
+    <script id="dynamicellNodeHead" type="text/html">
+<%= nodehead ?  nodehead  : ""; %>
+    </script>
+    <script id="dynamicellNodeFiles" type="text/html">
+<a href="<%=fileurl%>" target="_blank" ><%=filename%></a><br>
+    </script>
+    <script id="dynamicellProjectNodeValue" type="text/html">
+<% if(lefttime_plan) {%><fieldset><legend>计划进度</legend><p>开始日期：<%=lefttime_plan%></p><%} %>
+<% if(righttime_plan) {%><p>结束日期<%=righttime_plan%></p><%}%>
+<% if(workdays_plan) {%><p>工作进度：<div class="easyui-progressbar" style="width:80px;" value="<%=workdays_plan%>"></div></p><%} %>
+<% if(alldays_plan) {%><p>时间进度：<div class="easyui-progressbar" style="width:80px;" value="<%=alldays_plan %>"></div></p></fieldset><%} %>
+
+<% if(lefttime_real) {%><fieldset><legend>实际进度</legend><p>开始日期：<%=lefttime_real%></p><%} %>
+<% if(righttime_real) {%><p>结束日期：<%=righttime_real%></p><%} %>
+<% if(workdays_real) {%><p>工作进度：<div class="easyui-progressbar" style="width:80px;" value="<%=workdays_real%>"></div></p><%} %>
+<% if(alldays_real) {%><p>时间进度：<div class="easyui-progressbar" style="width:80px;" value="<%=alldays_real%>"></div></p></fieldset><%} %>
+
+<% if(progress_completerate) {%><fieldset><legend>财务</legend><p>完成进度：<div class="easyui-progressbar" style="width:80px;" value="<%=progress_completerate %>"></div></p><%} %>
+<% if(cashflow_left) {%><p>现金流入：<%=cashflow_left%></p><%} %>
+<% if(cashflow_right) {%><p>现金流出：<%=cashflow_right%></p><%} %>
+<% if(cashflow) {%><p>现金流：<%=cashflow%></p><%} %>
+<% if(cost_plan) {%><p>成本计划：<%=cost_plan%></p><%} %>
+<% if(cost_real) {%><p>成本支出：<%=cost_real%></p></fieldset><%} %>
+    </script>
+    <script id="dynamicellProjectNodeFiles" type="text/html">
+<a href="<%=fileurl%>" target="_blank" >[<%=filetype%>]<%=filename%></a><br>
+    </script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{433FDF1C-E607-445D-B142-62A7A58CECE2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SevenArmsSeries.PassionateRing</RootNamespace>
+    <AssemblyName>SevenArmsSeries.PassionateRing</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FSharp.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>_referdll\FSharp.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="IronJS, Version=0.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>_referdll\IronJS.dll</HintPath>
+    </Reference>
+    <Reference Include="IronJS.Runtime, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>_referdll\IronJS.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\eDaoItem.cs" />
+    <Compile Include="Common\eProtomerType.cs" />
+    <Compile Include="Common\eRuntimeContextType.cs" />
+    <Compile Include="Engine\DaoInstance.cs" />
+    <Compile Include="Engine\IInstance.cs" />
+    <Compile Include="Engine\Instance.cs" />
+    <Compile Include="Kernel\ActivityByConcurrency.cs" />
+    <Compile Include="Kernel\ActivityByConvergeEnd.cs" />
+    <Compile Include="Kernel\ActivityByConcurrencyExclusion.cs" />
+    <Compile Include="Kernel\ActivityByConcurrencyVote.cs" />
+    <Compile Include="Kernel\ActivityByConvergeStart.cs" />
+    <Compile Include="Kernel\ActivityByConvergeWaitLeftComplete.cs" />
+    <Compile Include="Kernel\ActivityByConvergeWaitConditionComplete.cs" />
+    <Compile Include="Kernel\ActivityByConvergeWaitAllComplete.cs" />
+    <Compile Include="Kernel\ActivityByConvergeCoerceComplete.cs" />
+    <Compile Include="Kernel\IProtomer.cs" />
+    <Compile Include="Service\WorkflowService.cs" />
+    <Compile Include="Extend\IEmail.cs" />
+    <Compile Include="Extend\ISMS.cs" />
+    <Compile Include="Extend\IUserPlus.cs" />
+    <Compile Include="Engine\Configuration.cs" />
+    <Compile Include="Common\eStoreType.cs" />
+    <Compile Include="Engine\IStore.cs" />
+    <Compile Include="Extend\eOrganType.cs" />
+    <Compile Include="Kernel\Right.cs" />
+    <Compile Include="_rubbish\Future\eProtomerType.cs" />
+    <Compile Include="_rubbish\Future\eValidExpressionType.cs" />
+    <Compile Include="Common\eActivityType.cs" />
+    <Compile Include="Service\ResponseByWorkitem.cs" />
+    <Compile Include="_rubbish\Future\JsonHelper.cs" />
+    <Compile Include="Common\ResultMessage.cs" />
+    <Compile Include="Engine\Context.cs" />
+    <Compile Include="Common\eWorkflowState.cs" />
+    <Compile Include="Common\Dao.cs" />
+    <Compile Include="Service\IWorkflowService.cs" />
+    <Compile Include="Kernel\Workitem.cs" />
+    <Compile Include="Kernel\WorkitemLocker.cs" />
+    <Compile Include="Engine\MaybeActivity.cs" />
+    <Compile Include="Kernel\RuntimeProtomer.cs" />
+    <Compile Include="Service\RequestByProxyWorkflow.cs" />
+    <Compile Include="Service\RequestBySubmitWorkitem.cs" />
+    <Compile Include="Engine\WorkflowInstance.cs" />
+    <Compile Include="Engine\WorkitemInstance.cs" />
+    <Compile Include="Engine\IParse.cs" />
+    <Compile Include="Engine\NextActivity.cs" />
+    <Compile Include="Kernel\WorkflowProxy.cs" />
+    <Compile Include="_rubbish\Future\ValidExpression.cs" />
+    <Compile Include="Common\eTaskTriggerType.cs" />
+    <Compile Include="Kernel\DataColumn.cs" />
+    <Compile Include="Extend\IOrgan.cs" />
+    <Compile Include="_rubbish\Future\DaoRelation.cs" />
+    <Compile Include="Common\eTransitionType.cs" />
+    <Compile Include="_rubbish\Future\Recursion.cs" />
+    <Compile Include="Extend\IRole.cs" />
+    <Compile Include="Common\eWorkitemState.cs" />
+    <Compile Include="Common\eDataType.cs" />
+    <Compile Include="Common\IDao.cs" />
+    <Compile Include="Kernel\Activity.cs" />
+    <Compile Include="Kernel\RuntimeJudgment.cs" />
+    <Compile Include="_rubbish\Future\IResource.cs" />
+    <Compile Include="Common\IUser.cs" />
+    <Compile Include="_rubbish\Future\IValidExpression.cs" />
+    <Compile Include="Kernel\IValue.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Kernel\RuntimeTask.cs" />
+    <Compile Include="Kernel\Transition.cs" />
+    <Compile Include="Kernel\Workflow.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" />
+    <None Include="workflow.vsd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Design\" />
+    <Folder Include="_rubbish\Common\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="LICENSE.txt" />
+    <Content Include="_referdll\FSharp.Core.dll" />
+    <Content Include="_referdll\FSharp.Core.xml" />
+    <Content Include="_referdll\IronJS.dll" />
+    <Content Include="_referdll\IronJS.Runtime.dll" />
+    <Content Include="_referdll\IronJS.Runtime.xml" />
+    <Content Include="_referdll\IronJS.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
